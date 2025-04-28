@@ -42,6 +42,5 @@ public class LedgerFunctions {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
