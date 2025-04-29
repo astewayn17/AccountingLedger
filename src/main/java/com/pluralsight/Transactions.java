@@ -1,7 +1,9 @@
 package com.pluralsight;
+//
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
+//
 public class Transactions {
 
     //
@@ -29,25 +31,26 @@ public class Transactions {
 
     // Using toString
     public String toString() {
-        return date + "|" + time + "|" + description + "|" + vendor + "|" + amount;
+        return date + "|" + time + "|" + description + "|" + vendor + "|" + String.format("%.2f",amount);
     }
 
     //
     public static void writeTransactionToFile(Transactions t, String filename) {
+        //
         try {
+            //
             File csv = new File(filename);
-
+            //
             FileWriter fileWriterBoi = new FileWriter(csv, true);
             BufferedWriter buffWriterBoi = new BufferedWriter(fileWriterBoi);
-
-
+            //
             if (csv.length() == 0) {
                 buffWriterBoi.write("date|time|description|vendor|amount\n");}
-
+            //
             buffWriterBoi.write(t.toString()+"\n");
-
+            //
             buffWriterBoi.close();
-
+        //
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -57,23 +60,31 @@ public class Transactions {
     public static ArrayList<Transactions> readTransactionsFromFile(String filename) {
         ArrayList<Transactions> transactions = new ArrayList<>();
         try {
+            //
             FileReader fileReadBoi = new FileReader(filename);
             BufferedReader buffReadBoi = new BufferedReader(fileReadBoi);
-
+            //
+            buffReadBoi.readLine();
+            //
             String aLine;
             while ((aLine = buffReadBoi.readLine()) != null) {
                 String[] lineParts = aLine.split("\\|");
-
+                //
                 if (lineParts.length == 5) {
                     Transactions transaction = new Transactions(lineParts[0], lineParts[1],
                             lineParts[2], lineParts[3], Double.parseDouble(lineParts[4]));
+                    transactions.add(transaction);
                 }
             }
+            //
             Collections.reverse(transactions);
+            //
             buffReadBoi.close();
+        //
         } catch(IOException e) {
             System.out.println("Error reading transactions file: " + e.getMessage());
         }
+        //
         return transactions;
     }
 }
