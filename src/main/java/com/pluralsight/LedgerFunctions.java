@@ -1,46 +1,150 @@
 package com.pluralsight;
-//
-import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class LedgerFunctions {
 
+    // Creates a scanner under the variable name "input"
+    static Scanner input = new Scanner(System.in);
+
     //
-    public static ArrayList<Transaction> readTransactionsFromFile(String filename) {
-        ArrayList<Transaction> transactions = new ArrayList<>();
-        try {
-            FileReader fileReadBoi = new FileReader(filename);
-            BufferedReader buffReadBoi = new BufferedReader(fileReadBoi);
+    public static void viewLedger() {
+        while (true) {
+            System.out.println("\n══║ WELCOME TO THE LEDGER ║══");
+            System.out.println("What would you like to do view?");
+            System.out.println("======== A - All      =========");
+            System.out.println("======== D - Deposit  ========");
+            System.out.println("======== P - Payments ========");
+            System.out.println("======== R - Reports  ========");
+            System.out.println("======== H - Home Screen =====");
+            System.out.print("\nPlease enter a letter (A, D, P, R, or H): ");
 
-            String aLine;
-            while ((aLine = buffReadBoi.readLine()) != null) {
-                String[] lineParts = aLine.split("\\|");
+            String prelimLedgerScreenInput = input.nextLine().toUpperCase().trim();
 
-                if (lineParts.length == 5) {
-                    Transaction transaction = new Transaction(lineParts[0], lineParts[1],
-                            lineParts[2], lineParts[3], Double.parseDouble(lineParts[4]));
-                    transactions.add(transaction);
-                }
+            if (prelimLedgerScreenInput.length() != 1) {
+                System.out.println("Invalid option! Please enter only one letter (A, D, L, X, or H).");
+                continue;
             }
-            buffReadBoi.close();
-        } catch(IOException e) {
-            System.out.println("Error reading transactions file: \" + e.getMessage()");
+            char ledgerScreenInput = prelimLedgerScreenInput.charAt(0);
+
+            switch (ledgerScreenInput) {
+                case 'A':
+                    ArrayList<Transactions> transactions = Transactions.readTransactionsFromFile
+                            ("src/main/resources/transactions.csv");
+                    System.out.println("Here are your transactions:");
+                    for (Transactions t : transactions) {
+                        System.out.println(t);
+                    }
+                    break;
+                case 'D':
+                    transactions = Transactions.readTransactionsFromFile
+                            ("src/main/resources/transactions.csv");
+                    System.out.println("Here are your transactions:");
+                    for (Transactions t : transactions) {
+                        if (t.getAmount() > 0) {
+                            System.out.println(t);
+                        }
+                    }
+                    break;
+                case 'P':
+                    transactions = Transactions.readTransactionsFromFile
+                            ("src/main/resources/transactions.csv");
+                    System.out.println("Here are your transactions:");
+                    for (Transactions t : transactions) {
+                        if (t.getAmount() < 0) {
+                            System.out.println(t);
+                        }
+                    }
+                    break;
+                case 'R':
+                    reports();
+                    break;
+                case 'H':
+                    System.out.println("Returning to the home screen...");
+                    return;
+                default:
+                    System.out.println("Invalid option! Please try again.");
+            }
         }
-        return transactions;
     }
 
     //
-    public static void writeTransactionToFile(Transaction t, String filename) {
-        try {
-            FileWriter fileWriterBoi = new FileWriter(filename, true);
-            BufferedWriter buffWriterBoi = new BufferedWriter(fileWriterBoi);
+    public static void reports() {
+        while (true) {
+            System.out.println("\n   ══║ LEDGER REPORTS ║══");
+            System.out.println("What format would like to view?");
+            System.out.println("~~~~~ 1 Month to Date    ~~~~~");
+            System.out.println("~~~~~ 2 Previous Month   ~~~~~");
+            System.out.println("~~~~~ 3 Year to Date     ~~~~~");
+            System.out.println("~~~~~ 4 Previous Year    ~~~~~");
+            System.out.println("~~~~~ 5 Search by Vendor ~~~~~");
+            System.out.println("~~~~~ 6 Back             ~~~~~");
+            System.out.print("\nPlease enter a number (1, 2, 3, 4, 5, or 6): ");
 
-            buffWriterBoi.write(t.toString()+"\n");
+            int reportChoice = input.nextInt();
+            input.nextLine();
+            LocalDate now = LocalDate.now();
 
-            buffWriterBoi.close();
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            switch (reportChoice) {
+                case 1:
+                    ArrayList<Transactions> transactions = Transactions.readTransactionsFromFile
+                            ("src/main/resources/transactions.csv");
+                    System.out.println("Here are your transactions from the beginning of the month: ");
+                    for (Transactions t : transactions) {
+                        LocalDate actionDate = LocalDate.parse(t.getDate());
+                        if (actionDate.getMonth() == now.getMonth() && actionDate.getYear() == now.getYear())
+                        { System.out.println(t); }
+                    }
+                    break;
+                case 2:
+                    transactions = Transactions.readTransactionsFromFile
+                            ("src/main/resources/transactions.csv");
+                    System.out.println("Here are your transactions from the previous month: ");
+                    for (Transactions t : transactions) {
+                        LocalDate actionDate = LocalDate.parse(t.getDate());
+                        if (actionDate.getMonth() == now.minusMonths(1).getMonth()
+                                && actionDate.getYear() == now.minusMonths(1).getYear());
+                        { System.out.println(t); }
+                    }
+                    break;
+                case 3:
+                    transactions = Transactions.readTransactionsFromFile
+                            ("src/main/resources/transactions.csv");
+                    System.out.println("Here are your transactions from the current year: ");
+                    for (Transactions t : transactions) {
+                        LocalDate actionDate = LocalDate.parse(t.getDate());
+                        if (actionDate.getYear() == now.getYear())
+                        { System.out.println(t); }
+                    }
+                    break;
+                case 4:
+                    transactions = Transactions.readTransactionsFromFile
+                            ("src/main/resources/transactions.csv");
+                    System.out.println("Here are your transactions from the previous year: ");
+                    for (Transactions t : transactions) {
+                        LocalDate actionDate = LocalDate.parse(t.getDate());
+                        if (actionDate.getYear() == now.minusMonths(1).getYear())
+                        { System.out.println(t); }
+                    }
+                    break;
+                case 5:
+                    System.out.println("Please enter the vendor/name: ");
+                    String vendorChoice = input.nextLine().trim();
+                    transactions = Transactions.readTransactionsFromFile
+                            ("src/main/resources/transactions.csv");
+                    System.out.println("Here are the transactions for vendor: " + vendorChoice);
+                    for (Transactions t : transactions) {
+                        if (t.getVendor().equalsIgnoreCase(vendorChoice))
+                        { System.out.println(t); }
+                    }
+                    break;
+                case 6:
+                    System.out.println("Returning to the ledger screen...");
+                    return;
+                default:
+                    System.out.println("Invalid option! Please try again.");
+            }
         }
     }
 }
