@@ -1,5 +1,5 @@
-<h1 align="center">Welcome to Asteway's Financial Services</h1>
-<h1 align="center">🏦 & Accounting Ledger System! 🏦</h1>
+<h1 align="center">🏦 Welcome to Asteway's Financial Services 🏦</h1>
+<h1 align="center">& Accounting Ledger System!</h1>
 
 ## Home Screen
 <table>
@@ -15,7 +15,8 @@
   </tr>
 </table>
 
-Transactions:
+**Transactions:**
+These will validate through most possible inputs and verify what the user enters.
 <table>
   <tr>
     <td align="center" width="500">
@@ -42,7 +43,8 @@ Transactions:
   </table>
 </div>
 
-Transaction Views:
+**Transaction Views:**
+These examples show the types of transactions the user wants to view though further validation. It also sorts the most recent from top to bottom.
 <table>
   <tr>
     <td align="center" width="500">
@@ -69,7 +71,8 @@ Transaction Views:
   </table>
 </div>
 
-Report Transaction Views:
+**Report Transaction Views:**
+These examples will show the user what they want to see from the reports screen. If there are no transaction visible for a certain report, it will notify the user.
 <table>
   <tr>
     <td align="center" width="500">
@@ -84,7 +87,8 @@ Report Transaction Views:
 </table>
 
 ## Interesting Code:
-Condition used to acquire previous month transaction reports:
+**Condition used to acquire previous month transaction reports:**
+Difficult to come up with but through further research, I was able to compare the year with the current year by subtracting one month from the current date. The LocalDate is advanced enough to not display anything wrong if the current month is January. 
 ```java
 case 2:
     transactions = Transactions.readTransactionsFromFile("src/main/resources/transactions.csv");
