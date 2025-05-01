@@ -233,11 +233,11 @@ public class LedgerFunctions {
                     break;
                 // Simply returns to the ledger screen -----------------------------------------------------------------
                 case 6:
-                    System.out.println("Returning to the ledger screen...");
+                    System.out.println("\nReturning to the ledger screen...");
                     return;
                 // If none of the cases above are met, this error will print -------------------------------------------
                 default:
-                    System.out.println("Invalid option! Please try again.");
+                    System.out.println("\nInvalid option! Please try again.");
             }
         }
     }
