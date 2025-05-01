@@ -46,11 +46,11 @@ Transaction Views:
 <table>
   <tr>
     <td align="center" width="500">
-      <img src="https://github.com/astewayn17/AccountingLedger/blob/main/screenshots/transaction_view_example_payments.png" width="340"/><br/>
+      <img src="https://github.com/astewayn17/AccountingLedger/blob/main/screenshots/transaction_view_example_deposits.png" width="325" /><br />
       <sub><i>Showing Deposits Only</i></sub>
     </td>
     <td align="center" width="500">
-      <img src="" width="330"/><br/>
+      <img src="https://github.com/astewayn17/AccountingLedger/blob/main/screenshots/transaction_view_example_payments.png" width="330" /><br />
       <sub><i>Showing Payments Only</i></sub>
     </td>
   </tr>
