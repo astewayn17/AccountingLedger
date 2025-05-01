@@ -1,51 +1,56 @@
 date|time|description|vendor|amount
-2023-05-09|15:22|Cash Deposit|Sunrise Apartments|1575.30
-2023-05-23|05:42|Rent Payment|Ashley Brown|2403.40
-2023-06-09|10:12|Utility Bill|John Smith|-1121.16
-2023-06-14|20:38|Restaurant|Trader Joe's|-491.15
-2023-06-18|09:59|Freelance Payment|Michael Thompson|2312.29
-2023-06-22|02:26|Rent Payment|ATM|1071.84
-2023-06-23|07:34|Utility Bill|Amanda Wilson|-298.06
-2023-07-13|11:17|Utility Bill|Olive Garden|-933.18
-2023-07-14|15:45|Grocery Shopping|Sunrise Apartments|-1790.32
-2023-07-26|00:16|Utility Bill|Michael Thompson|-2380.83
-2023-08-18|11:21|Refund Received|PayPal|1946.80
-2023-08-23|20:21|Hotel Booking|Electric Co|-2195.59
-2023-09-13|00:48|Salary Deposit|Ashley Brown|1228.04
-2023-09-22|06:09|Online Order|Michael Thompson|-1079.33
-2023-10-14|01:23|Gym Membership|Shell|-1172.58
-2023-11-24|01:24|Clothing Purchase|Venmo|-928.21
-2023-12-16|16:55|Gym Membership|Michael Thompson|-511.31
-2023-12-31|03:09|Grocery Shopping|ATM|-2289.66
-2024-01-09|09:11|Utility Bill|Emily Davis|-1250.40
-2024-01-10|02:52|Salary Deposit|Planet Fitness|873.44
-2024-01-20|14:53|Salary Deposit|Employer Inc|751.25
-2024-03-11|01:21|Gas Refill|Emily Davis|-788.78
-2024-03-25|13:00|Gas Refill|Chris Lee|-2251.11
-2024-03-28|01:35|Refund Received|Electric Co|801.26
-2024-04-01|15:38|Restaurant|Amazon|-2037.39
-2024-04-18|16:11|Gas Refill|Upwork|-2146.11
-2024-04-28|20:46|Cash Deposit|Chris Lee|1878.86
-2024-04-29|14:35|Cash Deposit|LiveNation|1701.95
-2024-05-03|06:47|Salary Deposit|Amazon|1845.86
-2024-05-18|08:56|Gas Refill|Daniel Clark|-1613.64
-2024-05-20|09:16|Utility Bill|H&M|-1487.07
-2024-05-22|21:39|Hotel Booking|Michael Thompson|-2161.79
-2024-05-29|23:19|Salary Deposit|LiveNation|1077.78
-2024-06-02|21:20|Freelance Payment|Chris Lee|690.34
-2024-07-02|13:49|Restaurant|Ashley Brown|-1653.54
-2024-07-03|04:47|Clothing Purchase|Jessica Hall|-2466.07
-2024-07-29|14:05|Online Order|Amanda Wilson|-1231.58
-2024-08-01|20:34|Restaurant|PayPal|-1372.83
-2024-10-01|05:56|Gas Refill|Amanda Wilson|-593.12
-2024-10-23|17:21|Freelance Payment|H&M|1176.62
-2024-10-25|00:46|Cash Deposit|Ashley Brown|1449.24
-2024-12-02|14:21|Freelance Payment|Sunrise Apartments|392.99
-2024-12-17|06:34|Gym Membership|Chris Lee|-287.59
-2025-01-01|22:27|Online Order|ATM|-973.51
-2025-01-09|00:01|Gift Received|ATM|99.89
-2025-01-16|11:57|Concert Ticket|PayPal|-424.51
-2025-01-19|15:47|Online Order|Jessica Hall|-1444.00
-2025-02-15|11:53|Grocery Shopping|Ashley Brown|-2287.82
-2025-02-24|15:18|Concert Ticket|Marriott|-1478.70
-2025-03-19|20:17|Freelance Payment|John Smith|1767.39
+2023-05-09|15:22:41|Cash Deposit|Sunrise Apartments|1575.30
+2023-05-23|05:42:18|Rent Payment|Ashley Brown|2403.40
+2023-06-09|10:12:09|Utility Bill|John Smith|-1121.16
+2023-06-14|20:38:55|Restaurant|Trader Joe's|-491.15
+2023-06-18|09:59:32|Freelance Payment|Michael Thompson|2312.29
+2023-06-22|02:26:07|Rent Payment|ATM|1071.84
+2023-06-23|07:34:12|Utility Bill|Amanda Wilson|-298.06
+2023-07-13|11:17:46|Utility Bill|Olive Garden|-933.18
+2023-07-14|15:45:21|Grocery Shopping|Sunrise Apartments|-1790.32
+2023-07-26|00:16:59|Utility Bill|Michael Thompson|-2380.83
+2023-08-18|11:21:04|Refund Received|PayPal|1946.80
+2023-08-23|20:21:39|Hotel Booking|Electric Co|-2195.59
+2023-09-13|00:48:25|Salary Deposit|Ashley Brown|1228.04
+2023-09-22|06:09:11|Online Order|Michael Thompson|-1079.33
+2023-10-14|01:23:44|Gym Membership|Shell|-1172.58
+2023-11-24|01:24:13|Clothing Purchase|Venmo|-928.21
+2023-12-16|16:55:36|Gym Membership|Michael Thompson|-511.31
+2023-12-31|03:09:10|Grocery Shopping|ATM|-2289.66
+2024-01-09|09:11:29|Utility Bill|Emily Davis|-1250.40
+2024-01-10|02:52:53|Salary Deposit|Planet Fitness|873.44
+2024-01-20|14:53:06|Salary Deposit|Employer Inc|751.25
+2024-03-11|01:21:38|Gas Refill|Emily Davis|-788.78
+2024-03-25|13:00:02|Gas Refill|Chris Lee|-2251.11
+2024-03-28|01:35:19|Refund Received|Electric Co|801.26
+2024-04-01|15:38:27|Restaurant|Amazon|-2037.39
+2024-04-18|16:11:33|Gas Refill|Upwork|-2146.11
+2024-04-28|20:46:17|Cash Deposit|Chris Lee|1878.86
+2024-04-29|14:35:52|Cash Deposit|LiveNation|1701.95
+2024-05-03|06:47:30|Salary Deposit|Amazon|1845.86
+2024-05-18|08:56:03|Gas Refill|Daniel Clark|-1613.64
+2024-05-20|09:16:58|Utility Bill|H&M|-1487.07
+2024-05-22|21:39:35|Hotel Booking|Michael Thompson|-2161.79
+2024-05-29|23:19:43|Salary Deposit|LiveNation|1077.78
+2024-06-02|21:20:22|Freelance Payment|Chris Lee|690.34
+2024-07-02|13:49:51|Restaurant|Ashley Brown|-1653.54
+2024-07-03|04:47:15|Clothing Purchase|Jessica Hall|-2466.07
+2024-07-29|14:05:28|Online Order|Amanda Wilson|-1231.58
+2024-08-01|20:34:47|Restaurant|PayPal|-1372.83
+2024-10-01|05:56:09|Gas Refill|Amanda Wilson|-593.12
+2024-10-23|17:21:16|Freelance Payment|H&M|1176.62
+2024-10-25|00:46:31|Cash Deposit|Ashley Brown|1449.24
+2024-12-02|14:21:08|Freelance Payment|Sunrise Apartments|392.99
+2024-12-17|06:34:14|Gym Membership|Chris Lee|-287.59
+2025-01-01|22:27:50|Online Order|ATM|-973.51
+2025-01-09|00:01:37|Gift Received|ATM|99.89
+2025-01-16|11:57:26|Concert Ticket|PayPal|-424.51
+2025-01-19|15:47:42|Online Order|Jessica Hall|-1444.00
+2025-02-15|11:53:54|Grocery Shopping|Ashley Brown|-2287.82
+2025-02-24|15:18:00|Concert Ticket|Marriott|-1478.70
+2025-03-19|20:17:45|Freelance Payment|John Smith|1767.39
+2025-04-01|08:46:39|Game Purchase|Amazon|-69.99
+2025-04-05|08:49:47|Amazon Refund|Asteway Nigussie|55.64
+2025-05-01|08:51:00|YT Subscription|Google|-19.99
+2025-05-01|08:51:54|Hammer Purchase|Home Depot|-14.99
+2025-05-01|08:52:41|Groceries|Walmart|-88.45

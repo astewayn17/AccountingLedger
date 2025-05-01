@@ -13,7 +13,8 @@ public class AccountingLedgerApp {
     // The main method to run the code =================================================================================
     public static void main(String[] args) {
         // Begins a loop that will run through the options on the home screen and back ---------------------------------
-        while (true) {
+        boolean accessing = true;
+        while (accessing) {
             // The home screen that asks for the user to input what they would like to do ------------------------------
             System.out.println("\n╔════════════════════════════════╗");
             System.out.println("║  ASTEWAY'S FINANCIAL SERVICES  ║");  // Outline design from ChatGPT 4o
@@ -29,7 +30,7 @@ public class AccountingLedgerApp {
             String prelimHomeScreenInput = input.nextLine().toUpperCase().trim();
             // If the preliminary choice is greater than one character, it restarts the loop as an error ---------------
             if (prelimHomeScreenInput.length() != 1) {
-                System.out.println("Invalid option! Please enter only one letter (D, P, L, or X).");
+                System.out.println("\nInvalid option! Please enter only one letter (D, P, L, or X).");
                 continue; }
             // Then this will store the first character of the preliminary choice as a single character ----------------
             char homeScreenInput = prelimHomeScreenInput.charAt(0);
@@ -42,6 +43,7 @@ public class AccountingLedgerApp {
                 case 'L': LedgerFunctions.viewLedger();
                     break;
                 case 'X': System.out.println("\nThank you for using Asteway's Financial Services. Goodbye!");
+                    accessing = false;
                     break;
                 default: System.out.println("Invalid option! Please try again.");
             }
@@ -58,11 +60,11 @@ public class AccountingLedgerApp {
             boolean vendorConfirmed = false;
             while (!vendorConfirmed) {
                 // Confirming the name (vendor) of the person depositing -----------------------------------------------
-                System.out.print("\nPlease enter your name: ");
+                System.out.print("\nPlease enter your name or the vendor: ");
                 String inputVendor = input.nextLine().trim();
                 // If the input is empty, it will print out this error and restart the loop ----------------------------
                 if (inputVendor.isEmpty()) {
-                    System.out.println("Name cannot be blank! Please try again.");
+                    System.out.println("\nName cannot be blank! Please try again.");
                     continue;
                 }
                 // Converts the name input into an array while trimming, lower casing and splitting by the spaces. Then
@@ -74,7 +76,7 @@ public class AccountingLedgerApp {
                     vendor = vendorArray[0].substring(0, 1).toUpperCase() + vendorArray[0].substring(1)
                             + " " + vendorArray[1].substring(0, 1).toUpperCase() + vendorArray[1].substring(1);
                 } else {
-                    System.out.println("Invalid input! Try again.");
+                    System.out.println("\nInvalid input! Try again.");
                     continue;
                 }
                 // Asks the user to confirm that what they entered is correct. Will then validate that Y or N input ----
@@ -104,7 +106,7 @@ public class AccountingLedgerApp {
                 System.out.print("\nPlease provide a deposit description: ");
                 description = input.nextLine().trim();
                 if (description.isEmpty()) {
-                    System.out.println("Description cannot be blank. Please try again.");
+                    System.out.println("\nDescription cannot be blank. Please try again.");
                     continue;
                 }
                 // Asks the user to confirm if their description is correct and validates if it is empty or not --------
@@ -132,7 +134,7 @@ public class AccountingLedgerApp {
                     System.out.print("\nPlease enter the deposit amount: $");
                     String prelimAmount = input.nextLine().trim();
                     if (prelimAmount.isEmpty()) {
-                        System.out.println("Error. Please enter a number.");
+                        System.out.println("\nInvalid input! Please enter a number.");
                         continue;
                     }
                     // Converting the string amount to a double which then is asked to the user to confirm if correct --
@@ -154,7 +156,7 @@ public class AccountingLedgerApp {
                     }
                     // If the user enters an amount that isn't a number, this catch will throw an error and restart ----
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid input! Please enter a number.");
+                    System.out.println("\nInvalid input! Please enter a number.");
                 }
             }
             // This ternary will make sure the amount is listed as a positive double -----------------------------------
@@ -188,7 +190,7 @@ public class AccountingLedgerApp {
                     makingADeposit = false;
                     break;
                 default:
-                    System.out.println("Invalid option! Returning to home screen.");
+                    System.out.println("\nInvalid option! Returning to home screen.");
                     return;
             }
         }
@@ -206,7 +208,7 @@ public class AccountingLedgerApp {
                     System.out.print("\nPlease enter the vendor's name: ");
                     vendor = input.nextLine().trim();
                     if (vendor.isEmpty()) {
-                        System.out.println("Vendor name cannot be blank. Please try again.");
+                        System.out.println("\nVendor name cannot be blank. Please try again.");
                         continue;
                     }
                     // -------------------------------------------------------------------------------------------------
@@ -228,7 +230,7 @@ public class AccountingLedgerApp {
                     }
                 // If the vendorResponse is empty, it will throw this exception ----------------------------------------
                 } catch (IndexOutOfBoundsException e) {
-                    System.out.println("Invalid input! Please try again.");
+                    System.out.println("\nInvalid input! Please try again.");
                 }
             }
             // ---------------------------------------------------------------------------------------------------------
@@ -240,7 +242,7 @@ public class AccountingLedgerApp {
                 System.out.print("\nPlease provide a payment description: ");
                 description = input.nextLine().trim();
                 if (description.isEmpty()) {
-                    System.out.println("Description cannot be blank. Please try again.");
+                    System.out.println("\nDescription cannot be blank. Please try again.");
                     continue;
                 }
                 // -----------------------------------------------------------------------------------------------------
@@ -268,7 +270,7 @@ public class AccountingLedgerApp {
                     System.out.print("\nPlease enter the payment amount: $");
                     String prelimAmount = input.nextLine().trim();
                     if (prelimAmount.isEmpty()) {
-                        System.out.println("Error. Please enter a number.");
+                        System.out.println("\nInvalid input! Please enter a number.");
                         continue;
                     }
                     // -------------------------------------------------------------------------------------------------
@@ -290,7 +292,7 @@ public class AccountingLedgerApp {
                     }
                     // Will throw this catch if the payment amount isn't a number --------------------------------------
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid input! Please enter a number.");
+                    System.out.println("\nInvalid input! Please enter a number.");
                 }
             }
             // Since a payment is negative, this ternary will be opposite of the deposit ternary -----------------------
@@ -302,17 +304,17 @@ public class AccountingLedgerApp {
             // ---------------------------------------------------------------------------------------------------------
             Transactions paymentTransaction = new Transactions(date, time, description, vendor, amount);
             Transactions.writeTransactionToFile(paymentTransaction, "src/main/resources/transactions.csv");
-            // -----------------------------------------------------------------------------------------------------
+            // ---------------------------------------------------------------------------------------------------------
             System.out.println("\nPayment made successfully!");
             System.out.println("\nWhat would you like to do next?");
             System.out.print("Make another payment (P) or return (X): ");
             String prelimAfterPaymentChoice = input.nextLine().toUpperCase().trim();
-            // -----------------------------------------------------------------------------------------------------
+            // ---------------------------------------------------------------------------------------------------------
             if (prelimAfterPaymentChoice.isEmpty()) {
                 System.out.println("\nInvalid input! Returning to home screen.");
                 return;
             }
-            // -----------------------------------------------------------------------------------------------------
+            // ---------------------------------------------------------------------------------------------------------
             char afterDepositChoice = prelimAfterPaymentChoice.trim().toUpperCase().charAt(0);
             switch (afterDepositChoice) {
                 case 'P':
@@ -321,10 +323,9 @@ public class AccountingLedgerApp {
                     makingAPayment = false;
                     break;
                 default:
-                    System.out.println("Invalid option! Returning to home screen.");
+                    System.out.println("\nInvalid option! Returning to home screen.");
                     return;
             }
         }
     }
 }
-
