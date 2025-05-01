@@ -1,6 +1,9 @@
 <h1 align="center">🏦 Welcome to Asteway's Financial Services 🏦</h1>
 <h1 align="center">& Accounting Ledger System!</h1>
 
+## Description
+The Accounting Ledger is a Java CLI (Command Line Interface) application designed to help users track financial transactions for business or personal use. This application allows users to record deposits and payments, view transaction history, and generate various financial reports in the format: date|time|description|vendor|amount
+
 ## Home Screen
 <table>
   <tr>
